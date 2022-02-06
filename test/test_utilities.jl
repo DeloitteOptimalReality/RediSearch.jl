@@ -1,7 +1,7 @@
 @testset "UTILS" begin
-    l_a = Array{Any, 1}()
-    l_t = Tuple{Any, Any}()
-    l_v = Vector{Any}()
+    l_a = String[]
+    l_t = Tuple[]
+    l_v = Vector{String}()
     l_d = Dict()
     @test JediSearch.isa_list(l_a) == true
     @test JediSearch.isa_list(l_t) == true
