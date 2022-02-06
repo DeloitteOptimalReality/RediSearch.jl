@@ -1,0 +1,9 @@
+# Ignore any build docs
+docs/build
+
+# Ignore manifest files. This should be done unless anything special is required,
+# for example using a local package by path or a particular commit of a github respository.
+Manifest.toml
+
+# Ignore vscode files
+.vscode/
