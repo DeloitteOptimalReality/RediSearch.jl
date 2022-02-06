@@ -1,5 +1,7 @@
 # JediSearch.jl
-
+[![CI](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/ci.yml)
+[![pages-build-deployment](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/pages/pages-build-deployment)
+[![Documentation](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/docs.yml)
 [![Codecov](https://codecov.io/gh/jacksoncalvert/JediSearch.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/jacksoncalvert/JediSearch.jl/)
 
 A RediSearch API for Julia. This package uses **[Jedis.jl](https://github.com/captchanjack/Jedis.jl)** as a the Redis api to interact with a redis server. All additional features needed to use the secondary indexing module **[RediSearch](https://oss.redis.com/redisearch/)** can be found in this package
