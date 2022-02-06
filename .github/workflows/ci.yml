@@ -49,9 +49,9 @@ jobs:
         with:
           file: lcov.info
       - run: |
-        echo "Cleaning up docker"
-        docker-compose -f docker/docker-compose.yml down --remove-orphans
-        docker image rm redislabs/redisearch:2.0.0
+          echo "Cleaning up docker"
+          docker-compose -f docker/docker-compose.yml down --remove-orphans
+          docker image rm redislabs/redisearch:2.0.0
   docs:
     name: Documentation
     runs-on: ubuntu-latest
