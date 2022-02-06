@@ -1,0 +1,4 @@
+[deps]
+JediSearch = "353f7206-d691-4bbb-b12e-a9a2d4b8f055"
+Jedis = "b89ccfe0-2c5f-46f6-b89b-da3e1c2e286f"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

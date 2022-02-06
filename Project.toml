@@ -1,0 +1,10 @@
+name = "JediSearch"
+uuid = "353f7206-d691-4bbb-b12e-a9a2d4b8f055"
+version = "0.1.0"
+
+[deps]
+Jedis = "b89ccfe0-2c5f-46f6-b89b-da3e1c2e286f"
+
+[compat]
+Jedis = "0.2.0"
+
