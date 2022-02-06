@@ -1,4 +1,7 @@
 # JediSearch.jl
+
+[![Codecov](https://codecov.io/gh/jacksoncalvert/JediSearch.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/jacksoncalvert/JediSearch.jl/)
+
 A RediSearch API for Julia. This package uses **[Jedis.jl](https://github.com/captchanjack/Jedis.jl)** as a the Redis api to interact with a redis server. All additional features needed to use the secondary indexing module **[RediSearch](https://oss.redis.com/redisearch/)** can be found in this package
 
 
