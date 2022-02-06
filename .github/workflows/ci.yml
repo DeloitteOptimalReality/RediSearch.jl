@@ -24,6 +24,10 @@ jobs:
           - x64
     steps:
       - uses: actions/checkout@v2
+      - uses: docker-practice/actions-setup-docker@master
+      - run: |
+          echo "Running redis server with docker-compose"
+          docker-compose -f docker/docker-compose.yml up -d
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
@@ -44,6 +48,10 @@ jobs:
       - uses: codecov/codecov-action@v1
         with:
           file: lcov.info
+      - run: |
+        echo "Cleaning up docker"
+        docker-compose -f docker/docker-compose.yml down --remove-orphans
+        docker image rm redislabs/redisearch:2.0.0
   docs:
     name: Documentation
     runs-on: ubuntu-latest
