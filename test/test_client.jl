@@ -19,49 +19,39 @@
         language_field="language",
         language="english",
         score_field="name",
-        score=2.0,
+        score=1.0,
     )
     
-    @test idx.args == ["ON", "HASH", "PREFIX", 1, "idx:", "LANGUAGE_FIELD", "language", "LANGUAGE", "english", "SCORE_FIELD", "name", "SCORE", 2.0]
+    @test idx.args == ["ON", "HASH", "PREFIX", 1, "idx:", "LANGUAGE_FIELD", "language", "LANGUAGE", "english", "SCORE_FIELD", "name"]
 
     text_field = TextField("field1")
 
-    @test_throws Jedis.RedisError create_index(
+    @test create_index(
         [text_field];
         definition=idx,
         no_term_offsets=true,
         no_field_flags=true,
         stopwords=["of"],
         max_text_fields=true,
-        temporary=1,
         no_highlight=true,
         no_term_frequencies=true,
         skip_initial_scan=true,
-    )
+    ) == "OK"
+
+    @test Jedis.execute("FT._LIST") == ["idx"]
 
     idx = IndexDefinition(
         prefix=["idx:"],
         score=1.0,
     )
-
-    create_index(
-        [text_field];
-        definition=idx,
-        no_term_offsets=true,
-        no_field_flags=true,
-        stopwords=["of"],
-        max_text_fields=true,
-        no_highlight=true,
-        no_term_frequencies=true,
-        skip_initial_scan=true,
-    )
-
-    @test Jedis.execute("FT._LIST") == ["idx"]
     drop_index()
     @test Jedis.execute("FT._LIST") == []
-
     create_index(
         [text_field];
         definition=idx
     )
+    @test Jedis.execute("FT._LIST") == ["idx"]
+    drop_index()
+
+    Jedis.execute("FLUSHALL")
 end
