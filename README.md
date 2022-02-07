@@ -1,8 +1,8 @@
-# JediSearch.jl
-[![CI](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/ci.yml)
-[![pages-build-deployment](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/pages/pages-build-deployment)
-[![Documentation](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/jacksoncalvert/JediSearch.jl/actions/workflows/docs.yml)
-[![Codecov](https://codecov.io/gh/jacksoncalvert/JediSearch.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/jacksoncalvert/JediSearch.jl/)
+# RediSearch.jl
+[![CI](https://github.com/jacksoncalvert/RediSearch.jl/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/jacksoncalvert/RediSearch.jl/actions/workflows/ci.yml)
+[![pages-build-deployment](https://github.com/jacksoncalvert/RediSearch.jl/actions/workflows/pages/pages-build-deployment/badge.svg?branch=main)](https://github.com/jacksoncalvert/RediSearch.jl/actions/workflows/pages/pages-build-deployment)
+[![Documentation](https://github.com/jacksoncalvert/RediSearch.jl/actions/workflows/docs.yml/badge.svg?branch=main)](https://github.com/jacksoncalvert/RediSearch.jl/actions/workflows/docs.yml)
+[![Codecov](https://codecov.io/gh/jacksoncalvert/RediSearch.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/jacksoncalvert/RediSearch.jl/)
 
 A RediSearch API for Julia. This package uses **[Jedis.jl](https://github.com/captchanjack/Jedis.jl)** as a the Redis api to interact with a redis server. All additional features needed to use the secondary indexing module **[RediSearch](https://oss.redis.com/redisearch/)** can be found in this package
 
@@ -11,11 +11,11 @@ A RediSearch API for Julia. This package uses **[Jedis.jl](https://github.com/ca
 ### Generating a client
 Generating a client object:
 ```
-julia> using JediSearch;
+julia> using RediSearch;
 julia> client = SearchClient("myIdx"; host="localhost", port=6379);
 ```
 
-This client sets both the search client object for JediSearch and the Redis Global client in Jedis. a client can be retrieved at any time using:
+This client sets both the search client object for RediSearch and the Redis Global client in Jedis. a client can be retrieved at any time using:
 ```
 julia> get_search_client();
 ```
@@ -71,11 +71,11 @@ Create a query and search:
 julia> q = Query("software");
 julia> results = search(q)
 [ Info: Result: 1 total
-JediSearch.Result(
+RediSearch.Result(
   1,
   0.0018129348754882812,
-  JediSearch.Document[
-    JediSearch.Document(
+  RediSearch.Document[
+    RediSearch.Document(
       "person:1",
       nothing,
       Dict{Any, Any}(

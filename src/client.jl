@@ -3,7 +3,7 @@ export SearchClient, create_index, get_search_client
 """
     Client(index_name::AbstractString; kwargs....) -> Jedis.Client
 
-Set the JediSearch Client. Clients contain an index name and a Jedis Client Struct. 
+Set the RediSearch Client. Clients contain an index name and a Jedis Client Struct. 
 Kwargs are included as any Jedis client kwargs
 
 # Fields
@@ -29,12 +29,12 @@ function SearchClient(index_name::AbstractString; kwargs...)::SearchClient
 end
 
 """
-    Global client of JediSearch. Used to reference the base client for JediSearch made 
+    Global client of RediSearch. Used to reference the base client for RediSearch made 
     through `Client()`.
 """
 const SEARCHCLIENT = Ref{SearchClient}()
 
-""" Return the client object for JediSearch"""
+""" Return the client object for RediSearch"""
 get_search_client() = SEARCHCLIENT[]
 
 """
@@ -150,7 +150,7 @@ Drop an index against a Client.
 - `index`: Index name to be dropped
 
 # Keywords
-- `client::SearchClient`: JediSearch Client
+- `client::SearchClient`: RediSearch Client
 """
 function drop_index(index; client::SearchClient=get_search_client())
     return Jedis.execute([SearchCommands.DROP_CMD, index], client.client)

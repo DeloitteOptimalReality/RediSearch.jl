@@ -1,4 +1,4 @@
-name = "JediSearch"
+name = "RediSearch"
 uuid = "353f7206-d691-4bbb-b12e-a9a2d4b8f055"
 authors = ["Jackson Calvert-Lane <jcalvertlane97@gmail.com>"]
 version = "0.1.0"
