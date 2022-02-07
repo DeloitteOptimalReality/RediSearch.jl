@@ -8,4 +8,5 @@ Jedis = "b89ccfe0-2c5f-46f6-b89b-da3e1c2e286f"
 
 [compat]
 Jedis = "0.2.0"
+julia = "^1"
 
