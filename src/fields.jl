@@ -108,7 +108,7 @@ Creates a TextField.
 function TextField(name; weight=1.0, no_stem=false, phonetic="", kwargs...)
     field = Field(name; args=[Fields.TEXT, Fields.WEIGHT, weight], kwargs...)
 
-    if !isnothing(phonetic) && phonetic in ["dm:en", "dm:fr", "dm:pt", "dm:es"]
+    if !isempty(phonetic) && phonetic in ["dm:en", "dm:fr", "dm:pt", "dm:es"]
         append!(field.args, [Fields.PHONETIC, phonetic])
     end
 

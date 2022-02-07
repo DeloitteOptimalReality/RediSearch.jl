@@ -1,4 +1,4 @@
-export SearchClient, create_index, get_search_client
+export SearchClient, create_index, get_search_client, drop_index
 
 """
     Client(index_name::AbstractString; kwargs....) -> Jedis.Client
@@ -125,7 +125,7 @@ function create_index(
         append!(args, [SearchCommands.STOPWORDS, num_stopwords])
 
         if num_stopwords > 0
-            append(args, [word for word in stopwords])
+            append!(args, [word for word in stopwords])
         end
     end
 
