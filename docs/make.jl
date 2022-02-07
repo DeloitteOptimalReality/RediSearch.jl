@@ -4,4 +4,15 @@ Pkg.develop(path=dirname(@__DIR__)) # Add RediSearch if not already added. This 
 
 using Documenter, DocumenterMarkdown, RediSearch
 
-makedocs(sitename="RediSearch", format = Markdown())
+
+makedocs(
+    sitename = "RediSearch.jl",
+    modules  = [RediSearch],
+    authors  = "Jackson Calvert-Lane",
+    pages    = [
+                "Home" => "index.md"
+               ]
+    )
+
+deploydocs(repo="github.com/jacksoncalvert/RediSearch.jl.git",)
+               

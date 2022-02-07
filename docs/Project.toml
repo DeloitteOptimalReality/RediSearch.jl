@@ -1,4 +1,4 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-RediSearch = "353f7206-d691-4bbb-b12e-a9a2d4b8f055"
 DocumenterMarkdown = "997ab1e6-3595-5248-9280-8efb232c3433"
+RediSearch = "353f7206-d691-4bbb-b12e-a9a2d4b8f055"
