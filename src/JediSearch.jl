@@ -1,4 +1,4 @@
-module JediSearch
+module RediSearch
 
 using Base: String, Number
 using Jedis

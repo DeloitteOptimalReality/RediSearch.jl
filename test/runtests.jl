@@ -1,5 +1,5 @@
 using Test
-using JediSearch
+using RediSearch
 using Jedis
 
 

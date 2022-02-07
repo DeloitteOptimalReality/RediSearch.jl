@@ -1,4 +1,4 @@
-# JediSearch Documentation
+# RediSearch Documentation
 
 ```@contents
 Depth = 3
@@ -6,18 +6,18 @@ Depth = 3
 
 ## Public Functions
 
-These functions are exported by JediSearch.
+These functions are exported by RediSearch.
 
 ```@autodocs
-Modules = [JediSearch]
+Modules = [RediSearch]
 Private = false
 ```
 
 ## Private Functions
 
-These functions are internal to JediSearch.
+These functions are internal to RediSearch.
 
 ```@autodocs
-Modules = [JediSearch]
+Modules = [RediSearch]
 Public = false
 ```
