@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-      - "test*"
+      - 'test/**'
     tags: '*'
 jobs:
   test:
@@ -28,7 +28,7 @@ jobs:
       - uses: docker-practice/actions-setup-docker@master
       - run: |
           echo "Running redis server with docker-compose"
-          docker-compose -f docker/docker-compose.yml up -d
+          docker run -p 6379:6379 redislabs/redisearch:2.0.0
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
@@ -51,6 +51,6 @@ jobs:
           file: lcov.info
       - run: |
           echo "Cleaning up docker"
-          docker-compose -f docker/docker-compose.yml down --remove-orphans
-          docker image rm redislabs/redisearch:2.0.0
+          docker kill $(docker ps -q)
+          docker rm $(docker ps -a -q)
   
