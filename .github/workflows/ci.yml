@@ -6,6 +6,7 @@ on:
   push:
     branches:
       - main
+      - "test*"
     tags: '*'
 jobs:
   test:
@@ -52,25 +53,4 @@ jobs:
           echo "Cleaning up docker"
           docker-compose -f docker/docker-compose.yml down --remove-orphans
           docker image rm redislabs/redisearch:2.0.0
-  docs:
-    name: Documentation
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: julia-actions/setup-julia@v1
-        with:
-          version: '1'
-      - run: |
-          julia --project=docs -e '
-            using Pkg
-            Pkg.develop(PackageSpec(path=pwd()))
-            Pkg.instantiate()'
-      - run: |
-          julia --project=docs -e '
-            using Documenter: doctest
-            using RediSearch
-            doctest(RediSearch)' # change MYPACKAGE to the name of your package
-      - run: julia --project=docs docs/make.jl
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
+  
