@@ -1,6 +1,12 @@
 @testset "client" begin
+    quick_flush()
+    
     client = SearchClient("idx")
     @test client.index_name == "idx"
+
+     # Check to see in docker container is working as expected
+    @test Jedis.execute("FT._LIST") == []
+
     @test typeof(client.client) <: Jedis.Client    
 
     @test typeof(get_search_client()) <: SearchClient

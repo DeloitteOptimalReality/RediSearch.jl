@@ -337,7 +337,7 @@ function get_args(q::AbstractQuery)
     end
 
     if !isempty(q.fields)
-        push!(args, "INFIELDS", string(length(q.fields)), q.fields...)
+        push!(args, "INFIELDS", string(length(q.fields)), [f.name for f in q.fields]...)
     end
 
     if q.verbatim

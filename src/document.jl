@@ -20,12 +20,12 @@ end
 
 function Document(
     id::AbstractString;
-    score::Union{Float64,Nothing},
-    payload::Union{Nothing,AbstractDict}=Dict(),
+    score::Union{Float64,Nothing}=nothing,
+    payload::Union{Nothing,AbstractDict}=Dict{Symbol, Any}(),
     kwargs...
 )
     for (k, v) in kwargs
-        payload[k] = v
+        payload[Symbol(k)] = v
     end
     
     return Document(id, score, payload)
