@@ -28,7 +28,7 @@ jobs:
       - uses: docker-practice/actions-setup-docker@master
       - run: |
           echo "Running redis server with docker-compose"
-          docker run -p 6379:6379 redislabs/redisearch:2.0.0
+          docker run -d -p 6379:6379 redislabs/redisearch:2.0.0
       - uses: julia-actions/setup-julia@v1
         with:
           version: ${{ matrix.version }}
