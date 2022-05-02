@@ -73,16 +73,16 @@ function Field(
     as_name=nothing,
 )
     if !isnothing(as_name)
-        append!(args, [Fields.AS, as_name])
+        args = vcat(args, [Fields.AS, as_name])
     end
 
     if sortable
-        push!(args, Fields.SORTABLE)
+        append!(args, [Fields.SORTABLE])
     end
 
     if no_index
         sortable && throw(ErrorException("Cannot Allow for Sortable and No Index on Field"))
-        push!(args, Fields.NOINDEX)
+        append!(args, [Fields.NOINDEX])
     end
 
     return Field(name, args, sortable, no_index, as_name)
@@ -113,7 +113,7 @@ function TextField(name; weight=1.0, no_stem=false, phonetic="", kwargs...)
     end
 
     if no_stem
-        push!(field.args, Fields.NOSTEM)
+        append!(field.args, [Fields.NOSTEM])
     end
 
     return field

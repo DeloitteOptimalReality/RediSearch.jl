@@ -88,10 +88,12 @@ function create_index(
 )
     args = []
     append!(args, [SearchCommands.CREATE_CMD, client.index_name])
+    redis_client = client.client
 
     if !isnothing(definition)
         append!(args, definition.args)
     end
+
     if max_text_fields
         push!(args, SearchCommands.MAXTEXTFIELDS)
     end
@@ -137,7 +139,7 @@ function create_index(
     end
 
     append!(args, schema_args)
-    return Jedis.execute(args)
+    return Jedis.execute(args, redis_client)
 end
 
 
