@@ -2,7 +2,7 @@
 
 | **Docs** | **Build Status** |
 |:----:|:----------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| [![docs](https://img.shields.io/badge/docs-stable-blue.svg)](https://jacksoncalvert.github.io/RediSearch.jl/dev) | ![Build](https://github.com/jacksoncalvert/RediSearch.jl/actions/workflows/ci.yml/badge.svg?branch=main) [![Codecov](https://codecov.io/gh/jacksoncalvert/RediSearch.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/jacksoncalvert/RediSearch.jl/) |
+| [![docs](https://img.shields.io/badge/docs-stable-blue.svg)](https://deloitteoptimalreality.github.io/RediSearch.jl/dev/) | ![Build](https://github.com/jacksoncalvert/RediSearch.jl/actions/workflows/ci.yml/badge.svg?branch=main) [![Codecov](https://codecov.io/gh/jacksoncalvert/RediSearch.jl/branch/main/graph/badge.svg)](https://codecov.io/gh/jacksoncalvert/RediSearch.jl/) |
 
 
 A RediSearch API for Julia. This package uses **[Jedis.jl](https://github.com/captchanjack/Jedis.jl)** as a the Redis api to interact with a redis server. All additional features needed to use the secondary indexing module **[RediSearch](https://oss.redis.com/redisearch/)** can be found in this package
